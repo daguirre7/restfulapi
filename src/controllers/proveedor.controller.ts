@@ -11,11 +11,13 @@ export class ProveedorController{
     }
     private routes(){
         this.app.route("/proveedores").get(this.prov_service.getAll);
+        this.app.route("/proveedor").post(this.prov_service.Nuevodato);
         //this.app.route("/proveedor/:id_prov").get(this.prov_service.getByID);
         //this.app.route("/proveedor/:id_prov").put(this.prov_service.Update);
         //Resumiendo codigo....
         this.app.route("/proveedor/:id_prov")
         .get(this.prov_service.getByID)
-        .put(this.prov_service.Update);
+        .put(this.prov_service.Update)
+        .delete(this.prov_service.Delete);
     }
 }

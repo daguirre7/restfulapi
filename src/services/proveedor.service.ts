@@ -32,5 +32,23 @@ export class ProveedorService{
             res.status(200).json(proveedor ? {"Updated":true} : {"updated":false});   
         });
     }
+
+    public Delete(req: Request, res: Response){
+        Proveedor.findByIdAndDelete (req.params.id_prov,req.body,(err: Error, proveedor: any)=>{
+            if(err){
+                res.status(401).send(err);
+            }
+            res.status(200).json(proveedor ?  {"Updated":true} : {"updated":false});
+        });
+    }
+    public Nuevodato(req: Request, res: Response){
+        const p = new Proveedor(req.body);
+        p.save((err: Error, proveedor: IProveedor)=>{
+            if(err){
+                res.status(401).send(err);
+            }
+            res.status(200).json(Proveedor ? {"successed": true, "Proveedor": proveedor} : {"successed":false});
+        });
+    }
 }
 

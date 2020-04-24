@@ -8,7 +8,7 @@ export interface IProveedor extends mongoose.Document{
 }
 
 const ProveedorSchema= new mongoose.Schema({
-   // _id: {type: String, required:true},
+    _id: {type: String, required:true},
     name: {type: String, required:true},
     tipo: {type: String, required:true},
     direccion: {type: String, required:false}

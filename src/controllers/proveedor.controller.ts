@@ -10,7 +10,12 @@ export class ProveedorController{
         this.routes();
     }
     private routes(){
-        this.app.route("/proveedors").get(this.prov_service.getAll);
-
+        this.app.route("/proveedores").get(this.prov_service.getAll);
+        //this.app.route("/proveedor/:id_prov").get(this.prov_service.getByID);
+        //this.app.route("/proveedor/:id_prov").put(this.prov_service.Update);
+        //Resumiendo codigo....
+        this.app.route("/proveedor/:id_prov")
+        .get(this.prov_service.getByID)
+        .put(this.prov_service.Update);
     }
 }
